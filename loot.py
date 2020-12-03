@@ -1,0 +1,20 @@
+s=input().split()
+n=int(s[0])
+w=float(s[1])
+d={}
+while(n):
+    s=input().split()
+    d[float(s[0])/float(s[1])]=[float(s[0]),float(s[1])]
+    n-=1
+l=sorted(d)
+i=len(l)-1
+count=0.0000
+while(i>=0 and w>0):
+    if(d[l[i]][1]<=w):
+        w=w-d[l[i]][1]
+        count+=d[l[i]][0]
+    else:
+        count+=l[i]*w
+        w=0
+    i-=1
+print("{:.4f}".format(count))
